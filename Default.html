@@ -1,0 +1,168 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Draw my canvas - Random Canvas generator </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="This website draws random or by input on a canvas, to generate art">
+
+    <link href="CSS/Game.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="Img/favicon.png" type="image/x-icon" />
+</head>
+<body>
+    <div id="con">
+
+        <nav id="nav">
+            <div >
+              <h1>Canvas Draw generator menu</h1>
+                <select class="col-lg-4" id="ddlDrawOptions" onchange="changeContent(this.value)">
+
+                    <option value="Circle">Circle</option>
+                    <option value="Triangle">Triangle</option>
+                    <option value="Box">Box</option>
+                    <option value="Gradient">Gradient</option>
+                    <option value="CircleLine">CircleLine</option>
+                    <option value="Image">Image</option>
+                </select>
+
+                <form class="col-lg-8" id="colorInput">
+                   <!--
+                    <select id="ddlColor"></select>
+                  -->
+                    <!--<input type="color" name="name" value="" />-->
+                    <!-- COLOR Stuff
+                    <button type="button" class="btn btn-success" onclick="ddlColorAdd();">Add Colors</button>
+                  -->
+
+
+                    <input type="color" id="colorPicker" value=""/>
+                    <button type="button" onclick="colorPickerValue()" >Pick Color</button>
+
+                </form>
+                <div id="storedColors">
+
+                </div>
+
+            </div>
+            <h2 id="h2Value"></h2>
+            <form id="Circle">
+              <div>
+                <div class="InputStylediv"><p>x:</p><input  type="text" name="name" value="" placeholder="input x" id="txtCircleX" /></div>
+                <div class="InputStylediv"><p>y:</p><input type="text" name="name" value="" placeholder="input y" id="txtCircleY" /></div>
+              </div>
+              <div>
+                <div class="InputStylediv"><p>Radius:</p><input type="text" name="name" value="" placeholder="input Radius" id="txtCircleRadius" /></div>
+                <div class="InputStylediv"><p>Start Angle:</p><input type="text" name="name" value="" placeholder="input startAngle" id="txtCircleStartAngle" /></div>
+              </div>
+              <div>
+                <div class="InputStylediv"><p>End Angle:</p><input type="text" name="name" value="" placeholder="input endAngle" id="txtCircleEndAngle" /></div>
+
+                <div class="InputStylediv"><p>Random Range</p><input type="text" name="name" value="" placeholder="input Random Range" id="txtCircleRandom" /></div>
+              </div>
+
+            </form>
+            <form id="Triangel">
+                <div class="InputStylediv"><p>width:</p><input  type="text" name="name" value="" placeholder="input width" id="inputWidth" /></div>
+                <div class="InputStylediv"><p>height:</p><input type="text" name="name" value="" placeholder="input height" id="inputHeight" /></div>
+
+                <div class="InputStylediv"><p>Random Range:</p><input type="text" name="name" value="" placeholder="input" id="txtTriangelRandom" /></div>
+
+            </form>
+            <form id="Rect">
+                <div class="InputStylediv"><p>x:</p><input type="text" name="name" value="" placeholder="input x" id="txtRectX" /></div>
+                <div class="InputStylediv"><p>y:</p><input type="text" name="name" value="" placeholder="input y" id="txtRectY" /></div>
+                <div class="InputStylediv"><p>height:</p><input type="text" name="name" value="" placeholder="input height" id="txtRectHeight" /></div>
+                <div class="InputStylediv"><p>width:</p><input type="text" name="name" value="" placeholder="input width" id="txtRectWidth" /></div>
+                <div class="InputStylediv"><p>Random range:</p><input type="text" name="name" value="" placeholder="input Random Range" id="txtBoxRandom" /></div>
+
+
+
+
+            </form>
+
+            <form id="Gradient">
+                  <div class="InputStylediv"><p>x:</p><input type="text" name="name" value="" placeholder="input x" id="txtGradX" /></div>
+                  <div class="InputStylediv"><p>y:</p><input type="text" name="name" value="" placeholder="input y" id="txtGradY" /></div>
+                  <div class="InputStylediv"><p>radius:</p><input type="text" name="name" value="" placeholder="input radius" id="txtGradR" /></div>
+
+                  <div class="InputStylediv"><p>x1:</p><input type="text" name="name" value="" placeholder="input x" id="txtGradX1" /></div>
+                  <div class="InputStylediv"><p>y1:</p><input type="text" name="name" value="" placeholder="input y" id="txtGradY1" /></div>
+                  <div class="InputStylediv"><p>Radius1:</p><input type="text" name="name" value="" placeholder="input radius" id="txtGradR1" /></div>
+                  <div class="InputStylediv"><p>Random Range:</p><input type="text" name="name" value="" placeholder="input Random Range" id="txtGradRandom" /></div>
+              </form>
+
+            <form id="CircleLine">
+                <h3>this dont really work atm ☺</h3>
+                <div class="InputStylediv"><p>x:</p><input type="text" name="name" value="" placeholder="input x" id="txtRectX" /></div>
+                <div class="InputStylediv"><p>y:</p><input type="text" name="name" value="" placeholder="input y" id="txtRectY" /></div>
+                <div class="InputStylediv"><p>Radius:</p><input type="text" name="name" value="" placeholder="input height" id="txtRectHeight" /></div>
+                <div class="InputStylediv"><p>:</p><input type="text" name="name" value="" placeholder="input width" id="txtRectWidth" /></div>
+                <div class="InputStylediv"><p>:</p><input type="text" name="name" value="" placeholder="input Random Range" id="txtCircleLineRandom" /></div>
+            </form>
+            <form id="Image">
+                <h3>Upload image and click update</h3>
+                <input type="file" id="imgUp" name="pic" accept="image/*">
+                <br/>
+            </form>
+
+              <div class="btnDivbtn">
+              <button type="button" class="btnUpdate" onclick="getInputs();">Update</button>
+              <button type="button" id="clearCanvas" onclick="clearCanvas();">ClearCanvas</button>
+              <button type="button" class="btnStop" onclick="stopDraw();">stop</button>
+              <a href=""    id="saveImg">Download Image</a><br>
+              <button type="button" class="btnUpdate" onclick="storeImage();">Store Image</button>
+              <button type="button" class="btnUpdate" onclick="drawStoreImage();">redraw</button>
+              <form>
+
+              </form>
+
+              </div>
+            <!--<button type="button" class="btn btn-success" onclick="timeout();">Json</button>-->
+
+            <div id="StoredOptionsBox">
+              <h3>
+                Stored Values Drawing values
+              </h3>
+              <div id="StoredOptions">
+
+              </div>
+
+            </div>
+          <!--  <div id="EditDiv">
+          </div>-->
+    </nav>
+
+    <span id="btnMenu">
+        <span onclick="menuShow();"><img src="Img/ic_settings_black_48dp.png"></span>
+        <!--<button class="btn btn-primary" id="btnMenu" onclick="menuShow();">menu</button>-->
+
+    </div>
+    <div id="canvasBlock">
+
+        <canvas id="myCanvas"></canvas>
+
+
+        <!--<p id="Json"></p>-->
+
+        <!--<h2>look up King Wen Squence</h2>
+        <h3>iChing</h3>-->
+    </div>
+
+    <img id="testImg"/>
+</body>
+</html>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-75523023-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<script src="Scripts/Generator.js"></script>
+<script src="Scripts/Menu.js"></script>
+<script src="Scripts/image.js"></script>
+<script src="Scripts/Color.js"></script>

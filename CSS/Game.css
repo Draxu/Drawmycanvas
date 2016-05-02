@@ -1,0 +1,177 @@
+﻿body {
+overflow: hidden;;
+    margin:0;
+}
+
+#con {
+    width:100%;
+
+}
+
+#btnMenu{
+    position : fixed;
+    right:1%;
+    top:1%;
+}
+#btnMenu span{
+    cursor: pointer;
+        right:1%;
+}
+    #btnMenu:nth-child(1) {
+        right:5%;
+    }
+    #btnMenu:nth-child(2) {
+        right:1%;
+    }
+    #btnMenu:nth-child(3) {
+        right:15%;
+    }
+nav {
+    position: fixed;
+    right:0vw;
+    background-color:rgba(165, 165, 165, 0.7);
+    height: 100vh;
+    width:33vw;
+
+
+}
+
+.editIcon{
+  cursor: pointer;
+    height: 4%;
+    width:10%;
+}
+.deleteIcon{
+    color:red;
+    cursor: pointer;
+    font-size:2em;
+    height: 3%;
+    width:3%;
+}
+
+.btnUpdate{
+    border-radius: 1.5em;
+    background-color: rgba(140, 249, 31, 0.7);
+    height: 3vh;
+    width: 6em;
+    border-style: none;
+}
+
+.btnStop{
+    border-radius: 1.5em;
+    background-color: rgba(240, 29, 29, 0.7);
+    height: 3vh;
+    width: 6em;
+    border-style: none;
+}
+#clearCanvas{
+  border-radius: 1.5em;
+  background-color: rgba(242, 240, 93, 0.7);
+  height: 3vh;
+  width: 7em;
+  border-style: none;
+}
+#myCanvas {
+
+    width:100%;
+    height:100%;
+}
+
+#Rect {
+    visibility:hidden;
+    display:none;
+}
+#Triangel {
+    visibility:hidden;
+    display:none;
+}
+#Circle {
+    visibility:hidden;
+    display:none;
+}
+
+.InputStylediv {
+  width:50%;
+  float:left;
+  display:inline-block;
+  min-height: 5%;
+
+}
+.InputStylediv p {
+  margin:0 0 0 0;
+}
+.btnDivbtn{
+  width:100%;
+  float:left;
+}
+
+#StoredOptionsBox{
+  float:left;
+  width:100%;
+}
+
+
+#CircleLine {
+    visibility:hidden;
+    display:none;
+
+}
+#Gradient {
+    visibility:hidden;
+    display:none;
+}
+#Image {
+  visibility: hidden;
+  display:none;
+}
+
+h1{
+    font-size: 1em;
+}
+
+#storedColors {
+  float:left;
+  width:100%;
+}
+
+#storedColors  div{
+  float:left;
+  width:33%;
+}
+.colorBox{
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+@media only screen and (min-width: 768px) {
+
+}
+*/
+@media only screen and (max-width: 768px) {
+  h1 {
+    font-size:1em;
+  }
+  nav
+  {
+    overflow: auto;
+    max-height: 100vh;
+    width:100vw;
+  }
+}
